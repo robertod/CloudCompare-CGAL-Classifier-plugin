@@ -6,7 +6,7 @@ option( MY_PLUGIN_STANDARD "Install my plugin" ON )
 if ( PLUGIN_EXAMPLE_STANDARD )
 	project( MyPlugin )
 	
-	find_package(CGAL REQUIRED)
+	#find_package(CGAL REQUIRED)
 
 	AddPlugin( NAME ${PROJECT_NAME} )
 		
