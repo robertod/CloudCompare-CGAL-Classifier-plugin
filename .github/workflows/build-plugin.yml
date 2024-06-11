@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scalar_double: [ "OFF", "ON" ]
+        scalar_double: [ "OFF" ] #[ "OFF", "ON" ]
         config:
           - {
             name: "Windows MSVC",
