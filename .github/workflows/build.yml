@@ -77,6 +77,8 @@ jobs:
             -DPLUGIN_EXAMPLE_GL=ON \
             -DPLUGIN_EXAMPLE_IO=ON \
             -DPLUGIN_EXAMPLE_STANDARD=ON \
+            -DCCCORELIB_USE_CGAL=ON \
+            -DMY_PLUGIN_STANDARD=ON \
             -DPLUGIN_GL_QEDL=ON \
             -DPLUGIN_GL_QSSAO=ON \
             -DPLUGIN_IO_QADDITIONAL=ON \
@@ -174,6 +176,8 @@ jobs:
           -DPLUGIN_EXAMPLE_GL=ON
           -DPLUGIN_EXAMPLE_IO=ON
           -DPLUGIN_EXAMPLE_STANDARD=ON
+          -DCCCORELIB_USE_CGAL=ON
+          -DMY_PLUGIN_STANDARD=ON
           -DPLUGIN_GL_QEDL=ON
           -DPLUGIN_GL_QSSAO=ON
           -DPLUGIN_IO_QADDITIONAL=ON
