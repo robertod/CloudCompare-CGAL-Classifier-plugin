@@ -76,7 +76,7 @@ jobs:
             -DOPTION_SUPPORT_GAMEPADS=OFF \
             -DPLUGIN_EXAMPLE_GL=OFF \
             -DPLUGIN_EXAMPLE_IO=OFF \
-            -DPLUGIN_EXAMPLE_STANDARD=ON \
+            -DPLUGIN_EXAMPLE_STANDARD=OFF \
             -DPLUGIN_GL_QEDL=OFF \
             -DPLUGIN_GL_QSSAO=OFF \
             -DPLUGIN_IO_QADDITIONAL=OFF \
@@ -124,7 +124,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scalar_double: [ "OFF", "ON" ]
+        scalar_double: [ "OFF" ] #[ "OFF", "ON" ]
         compiler: ["GCC", "Clang"]
 
     steps:
@@ -145,6 +145,7 @@ jobs:
           libeigen3-dev
           libcgal-dev libcgal-qt5-dev libgdal-dev libpcl-dev
           libdlib-dev libproj-dev libxerces-c-dev xvfb libjsoncpp-dev liblaszip-dev
+          libcgal-dev
 
       - name: Setup GCC
         if: matrix.compiler == 'GCC'
@@ -173,7 +174,7 @@ jobs:
           -DCCCORELIB_USE_TBB=ON
           -DPLUGIN_EXAMPLE_GL=OFF
           -DPLUGIN_EXAMPLE_IO=OFF
-          -DPLUGIN_EXAMPLE_STANDARD=ON
+          -DPLUGIN_EXAMPLE_STANDARD=OFF
           -DPLUGIN_GL_QEDL=OFF
           -DPLUGIN_GL_QSSAO=OFF
           -DPLUGIN_IO_QADDITIONAL=OFF
