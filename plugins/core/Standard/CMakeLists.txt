@@ -18,14 +18,14 @@ add_subdirectory( qSRA )
 add_subdirectory( qMeshBoolean )
 
 #plugins integrated as submodules
-set( submod_plugins
-		${CMAKE_CURRENT_SOURCE_DIR}/qColorimetricSegmenter
-		${CMAKE_CURRENT_SOURCE_DIR}/qMasonry
-		${CMAKE_CURRENT_SOURCE_DIR}/qMPlane
-		${CMAKE_CURRENT_SOURCE_DIR}/qJSonRPCPlugin
-		${CMAKE_CURRENT_SOURCE_DIR}/qTreeIso
-		${CMAKE_CURRENT_SOURCE_DIR}/q3DMASC
-)
+#set( submod_plugins
+#		${CMAKE_CURRENT_SOURCE_DIR}/qColorimetricSegmenter
+#		${CMAKE_CURRENT_SOURCE_DIR}/qMasonry
+#		${CMAKE_CURRENT_SOURCE_DIR}/qMPlane
+#		${CMAKE_CURRENT_SOURCE_DIR}/qJSonRPCPlugin
+#		${CMAKE_CURRENT_SOURCE_DIR}/qTreeIso
+#		${CMAKE_CURRENT_SOURCE_DIR}/q3DMASC
+#)
 
 foreach( dir ${submod_plugins} )
     if( IS_DIRECTORY ${dir} AND EXISTS ${dir}/CMakeLists.txt )
