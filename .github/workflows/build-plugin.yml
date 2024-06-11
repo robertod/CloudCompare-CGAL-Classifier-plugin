@@ -74,6 +74,7 @@ jobs:
             -DCCCORELIB_SCALAR_DOUBLE=${{ matrix.scalar_double }} \
             -DEIGEN_ROOT_DIR="$EIGEN_ROOT_DIR" \
             -DOPTION_SUPPORT_GAMEPADS=OFF \
+            -DCCCORELIB_USE_CGAL=ON
             -DPLUGIN_EXAMPLE_GL=OFF \
             -DPLUGIN_EXAMPLE_IO=OFF \
             -DPLUGIN_EXAMPLE_STANDARD=OFF \
@@ -145,7 +146,6 @@ jobs:
           libeigen3-dev
           libcgal-dev libcgal-qt5-dev libgdal-dev libpcl-dev
           libdlib-dev libproj-dev libxerces-c-dev xvfb libjsoncpp-dev liblaszip-dev
-          libcgal-dev
 
       - name: Setup GCC
         if: matrix.compiler == 'GCC'
@@ -172,6 +172,7 @@ jobs:
           -DDLIB_ROOT=/usr/include
           -DCCCORELIB_SCALAR_DOUBLE=${{ matrix.scalar_double }}
           -DCCCORELIB_USE_TBB=ON
+          -DCCCORELIB_USE_CGAL=ON
           -DPLUGIN_EXAMPLE_GL=OFF
           -DPLUGIN_EXAMPLE_IO=OFF
           -DPLUGIN_EXAMPLE_STANDARD=OFF
