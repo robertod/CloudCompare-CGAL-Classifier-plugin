@@ -3,7 +3,7 @@
 # Add an option to CMake to control whether we build this plugin or not
 option( MY_PLUGIN_STANDARD "Install my plugin" ON )
 
-if ( PLUGIN_EXAMPLE_STANDARD )
+if ( MY_PLUGIN_STANDARD )
 	project( MyPlugin )
 	
 	#find_package(CGAL REQUIRED)
