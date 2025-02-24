@@ -11,7 +11,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scalar_double: [ "OFF" ] #[ "OFF", "ON" ]
         config:
           - {
             name: "Windows MSVC",
@@ -44,7 +43,6 @@ jobs:
           activate-environment: CloudCompareDev
           auto-activate-base: false
           environment-file: ${{ matrix.config.conda_dep_file }}
-          mamba-version: "*"
 
       - name: Configure MSVC console (Windows)
         if: matrix.config.os == 'windows-latest'
@@ -71,7 +69,6 @@ jobs:
             -G "${{ matrix.config.generator }}" \
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_PREFIX_PATH="$CONDA_LIB_DIR" \
-            -DCCCORELIB_SCALAR_DOUBLE=${{ matrix.scalar_double }} \
             -DEIGEN_ROOT_DIR="$EIGEN_ROOT_DIR" \
             -DOPTION_SUPPORT_GAMEPADS=OFF \
             -DCCCORELIB_USE_CGAL=ON \
@@ -105,6 +102,7 @@ jobs:
             -DPLUGIN_STANDARD_QRANSAC_SD=OFF \
             -DPLUGIN_STANDARD_QPCL=OFF \
             -DPLUGIN_STANDARD_QCLOUDLAYERS=OFF \
+            -DPLUGIN_STANDARD_QVOXFALL=OFF \
             .
 
       - name: Build
@@ -119,14 +117,13 @@ jobs:
         run: cmake --install build
 
   ubuntu-build:
-    name: Ubuntu ${{ matrix.compiler }} SCALAR_DOUBLE=${{ matrix.scalar_double }}
+    name: Ubuntu ${{ matrix.compiler }}
     runs-on: ubuntu-22.04
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     strategy:
       fail-fast: false
       matrix:
-        scalar_double: [ "OFF" ] #[ "OFF", "ON" ]
         compiler: ["GCC", "Clang"]
 
     steps:
@@ -171,7 +168,6 @@ jobs:
           -DEIGEN_ROOT_DIR=/usr/include/eigen3
           -DJSON_ROOT_DIR=/usr/include/jsoncpp
           -DDLIB_ROOT=/usr/include
-          -DCCCORELIB_SCALAR_DOUBLE=${{ matrix.scalar_double }}
           -DCCCORELIB_USE_TBB=ON
           -DCCCORELIB_USE_CGAL=ON
           -DPLUGIN_EXAMPLE_GL=OFF
@@ -205,6 +201,7 @@ jobs:
           -DPLUGIN_STANDARD_QRANSAC_SD=OFF
           -DPLUGIN_STANDARD_QPCL=OFF
           -DPLUGIN_STANDARD_QCLOUDLAYERS=OFF
+          -DPLUGIN_STANDARD_QVOXFALL=OFF
           -DBUILD_TESTING=ON
 
       - name: Build
