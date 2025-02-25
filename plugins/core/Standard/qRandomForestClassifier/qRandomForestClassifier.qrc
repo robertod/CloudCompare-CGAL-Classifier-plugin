@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/CC/plugin/qRandomForestClassifier">
+	    <file>images/icon.png</file>
+        <file>info.json</file>
+        <file>images/icon_classify.png</file>
+        <file>images/icon_train.png</file>
+        <file>images/Logo_inria_cerema_cgal.png</file>
+    </qresource>
+</RCC>

@@ -1,4 +1,4 @@
-add_subdirectory( MyPlugin )
+add_subdirectory( qRandomForestClassifier )
 add_subdirectory( qAnimation )
 add_subdirectory( qBroom )
 add_subdirectory( qCanupo )

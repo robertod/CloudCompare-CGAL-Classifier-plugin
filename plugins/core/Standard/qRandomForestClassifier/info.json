@@ -1,0 +1,33 @@
+{
+  "type": "Standard",
+  "name": "Random Forest Classifier (CGAL)",
+  "icon": ":/CC/plugin/qRandomForestClassifier/images/icon.png",
+  "description": "Incorporates the CGAL point cloud classifier. The classifier computes some basic geometric features that are used to train a random forest classifier.\n\nThe CGAL Classification package is licensed under GNU General Public License (GPLv3+).",
+  "authors": [
+	{
+	  "name": "Simon Giraudot"
+	},
+	{
+	  "name": "Florent Lafarge"
+	},
+	{
+	  "name": "Roberto M. Dyke",
+	  "email": "roberto.dyke@inria.fr"
+	}
+  ],
+  "maintainers": [
+	{
+	  "name": "Roberto M. Dyke"
+	}
+  ],
+  "references": [
+	{
+	  "text": "The Computational Geometry Algorithms Library project",
+	  "url": "https://www.cgal.org/"
+	},
+	{
+	  "text": "CGAL classification package",
+	  "url": "https://doc.cgal.org/latest/Classification/index.html#Chapter_Classification"
+	}
+  ]
+}
