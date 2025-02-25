@@ -60,6 +60,7 @@ jobs:
         shell: bash -l {0}
         run: |
           mkdir build
+          mkdir install
 
           export CONDA_LIB_DIR="$CONDA_PREFIX/${{ matrix.config.conda_library_dir }}"
           export EIGEN_ROOT_DIR="$CONDA_LIB_DIR/include/eigen3"
@@ -68,6 +69,7 @@ jobs:
             -B build \
             -G "${{ matrix.config.generator }}" \
             -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=install \
             -DCMAKE_PREFIX_PATH="$CONDA_LIB_DIR" \
             -DEIGEN_ROOT_DIR="$EIGEN_ROOT_DIR" \
             -DOPTION_SUPPORT_GAMEPADS=OFF \
@@ -110,12 +112,19 @@ jobs:
 
       - name: Install (macOs)
         if: matrix.config.os == 'macos-latest'
-        run: sudo cmake --install build
+        run: sudo cmake --install build --prefix install
 
       - name: Install (Windows)
         if: matrix.config.os == 'windows-latest'
-        run: cmake --install build
-
+        run: cmake --install build --prefix install
+        
+      - name: Upload plugin binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-binaries-${{ matrix.config.name }}
+          path: install/
+          retention-days: 2
+  
   ubuntu-build:
     name: Ubuntu ${{ matrix.compiler }}
     runs-on: ubuntu-22.04
