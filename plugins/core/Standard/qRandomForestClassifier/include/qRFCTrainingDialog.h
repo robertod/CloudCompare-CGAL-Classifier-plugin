@@ -81,7 +81,7 @@ public:
 	//QVariant featureListToVariant(const qRFCTools::FeatureList&);
 	//qRFCTools::FeatureList variantToFeatureList(const QVariant&);
 
-	std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > qRFCTrainingDialog::getFeatures(ccPointCloud*) const;
+	std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > getFeatures(ccPointCloud*) const;
 
 protected:
 
