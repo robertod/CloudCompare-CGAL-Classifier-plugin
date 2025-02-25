@@ -119,10 +119,11 @@ jobs:
         run: cmake --install build --prefix install
         
       - name: Upload plugin binaries
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: plugin-binaries-${{ matrix.config.name }}
           path: install/
+          retention-days: 2
   
   ubuntu-build:
     name: Ubuntu ${{ matrix.compiler }}
