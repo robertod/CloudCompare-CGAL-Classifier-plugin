@@ -60,7 +60,7 @@ jobs:
         shell: bash -l {0}
         run: |
           mkdir build
-          mkdir build
+          mkdir install
 
           export CONDA_LIB_DIR="$CONDA_PREFIX/${{ matrix.config.conda_library_dir }}"
           export EIGEN_ROOT_DIR="$CONDA_LIB_DIR/include/eigen3"
