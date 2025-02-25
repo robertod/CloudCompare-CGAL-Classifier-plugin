@@ -202,26 +202,46 @@ public:
 	//! Train parameters
 	struct TrainParams
 	{
-		std::vector<int> classes_list = { 0,1 };
-		int nscales = 5;
-		double min_scale = -1;
-		bool evaluate_params = false;
-		int max_core_points = 0;
-		size_t num_trees = 25;
-		size_t max_depth = 20;
-		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > features = {};
-		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > eval_features = {};
+		std::vector<int> classes_list;
+		int nscales;
+		double min_scale;
+		bool evaluate_params;
+		int max_core_points;
+		size_t num_trees;
+		size_t max_depth;
+		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*>> features;
+		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*>> eval_features;
+
+		TrainParams() :
+			classes_list({ 0, 1 }),
+			nscales(5),
+			min_scale(-1),
+			evaluate_params(false),
+			max_core_points(0),
+			num_trees(25),
+			max_depth(20),
+			features(),
+			eval_features() { }
 	};
 	//! Classify parameters
 	struct ClassifyParams
 	{
-		std::vector<int> classes_list = { 0,1 };
-		int nscales = 5;
-		double min_scale = -1;
-		bool export_features = false;
-		Regularization::Method reg_type = Regularization::Method::NONE;
-		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > eval_features = {};
-		CCCoreLib::ScalarField* labels = nullptr;
+		std::vector<int> classes_list;
+		int nscales;
+		double min_scale;
+		bool export_features;
+		Regularization::Method reg_type;
+		std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > eval_features;
+		CCCoreLib::ScalarField* labels;
+
+		ClassifyParams() :
+			classes_list({ 0, 1 }),
+			nscales(5),
+			min_scale(-1),
+			export_features(false),
+			reg_type(Regularization::Method::NONE),
+			eval_features(),
+			labels(nullptr) { }
 	};
 	//! Trains classifier given two point clouds representing class #1 and class #2 (feature collection phase)
 	QString train(ccPointCloud* cloud1, ccPointCloud* cloud2, std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > features1, std::vector<std::pair<Features::Source, CCCoreLib::ScalarField*> > features2, const TrainParams& params = TrainParams());
